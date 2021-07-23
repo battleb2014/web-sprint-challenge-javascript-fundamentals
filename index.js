@@ -77,9 +77,7 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(){
-    const lowerCaseNames = zooAnimals.map(item => `${item.animal_name.toLowerCase()}`);
-
-    return lowerCaseNames;
+    return zooAnimals.map(item => `${item.animal_name.toLowerCase()}`);
   }
 
   console.log(lowerCaseNames());
@@ -106,10 +104,11 @@ const zooAnimals = [
   */
 
   function USApop(){
-    let totalPop = 0;
-    for(let i = 0; i < zooAnimals.length; i++) {
-      totalPop += zooAnimals[i].population;
-    } 
+    let totalPop =zooAnimals.reduce(function(acc, element) {
+       return acc + element.population;
+      }, 0);
+    
+    
     return totalPop;
   }
 
